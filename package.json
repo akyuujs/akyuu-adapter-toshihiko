@@ -1,0 +1,26 @@
+{
+  "name": "akyuu-adapter-toshihiko",
+  "version": "1.0.0",
+  "description": "Toshihiko adapter for Akyuujs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akyuujs/akyuu-adapter-toshihiko.git"
+  },
+  "keywords": [
+    "Toshihiko",
+    "Akyuu"
+  ],
+  "author": "XadillaX <i@2333.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akyuujs/akyuu-adapter-toshihiko/issues"
+  },
+  "homepage": "https://github.com/akyuujs/akyuu-adapter-toshihiko#readme",
+  "dependencies": {
+    "toshihiko": "^0.7.7"
+  }
+}
