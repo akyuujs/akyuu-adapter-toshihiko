@@ -1,6 +1,6 @@
 # akyuu-adapter-toshihiko
 
-Toshihiko adapter for Akyuujs.
+Toshihiko adapter for [Akyuujs](https://github.com/akyuujs/akyuu).
 
 ## Installation
 
