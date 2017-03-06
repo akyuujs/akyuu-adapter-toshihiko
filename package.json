@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/akyuujs/akyuu-adapter-toshihiko#readme",
   "dependencies": {
-    "toshihiko": "^0.7.7"
+    "toshihiko": "^1.0.0-alpha.4"
   }
 }
