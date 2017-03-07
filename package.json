@@ -1,6 +1,6 @@
 {
   "name": "akyuu-adapter-toshihiko",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Toshihiko adapter for Akyuujs.",
   "main": "index.js",
   "scripts": {

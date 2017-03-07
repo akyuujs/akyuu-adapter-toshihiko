@@ -14,20 +14,23 @@ Model.prototype.nextId = function(callback) {
 };
 
 exports.create = function(config) {
-    var toshihiko = new T.Toshihiko(config.database, config.username, config.password, config);
+    config.dialect = config.dialect || "mysql";
+    var toshihiko = new T.Toshihiko(config.dialect, config);
     toshihiko.TYPE = T.Type;
 
-    toshihiko.nextSequence = function(name, callback) {
-        toshihiko.execute(
-            "INSERT INTO `_sequence` (`name`) VALUES('{name}') ON DUPLICATE KEY ".assign({
-                name: name
-            }) + "UPDATE `id` = LAST_INSERT_ID(`id` + 1)",
+    if(config.dialect === "mysql") {
+        toshihiko.nextSequence = function(name, callback) {
+            toshihiko.execute(
+                "INSERT INTO `_sequence` (`name`) VALUES('{name}') ON DUPLICATE KEY ".assign({
+                    name: name
+                }) + "UPDATE `id` = LAST_INSERT_ID(`id` + 1)",
 
-            function(err, info) {
-                if (err) return callback(err);
-                callback(null, info.insertId);
-            });
-    };
+                function(err, info) {
+                    if (err) return callback(err);
+                    callback(null, info.insertId);
+                });
+        };
+    }
 
     return toshihiko;
 };

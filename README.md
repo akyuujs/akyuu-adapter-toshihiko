@@ -17,13 +17,8 @@ And its `adapter` should be `toshihiko`.
 | option | required | remark |
 |--------|----------|--------|
 | adapter| ✓        | must be `toshihiko` |
-| database | ✓      | database name |
-| username | ✓      | username of MySQL |
-| password | ✓     | passowrd of MySQL |
-| host |           | host of MySQL |
-| port |           | port of MySQL |
-| cache |          | same as [Toshihiko's document](https://github.com/XadillaX/Toshihiko#initialize) |
-| ... |            | same as [mysql's document](https://www.npmjs.com/package/mysql#pool-options) |
+| dialect|          | default to `"mysql"`, see [Toshihiko's document](http://toshihiko.readthedocs.io/en/latest/getting-started/#installation) |
+| ...    |          | see [Toshihiko's document](http://toshihiko.readthedocs.io/en/latest/getting-started/#installation) |
 
 ### A Probably Demo Configuration File
 
@@ -33,12 +28,12 @@ And its `adapter` should be `toshihiko`.
 module.exports = {
     main: {
         adapter: "toshihiko",
+        dialect: "mysql",
         database: "test",
         username: "root",
         password: "",
         host: "127.0.0.1",
         port: 3306,
-
         showSql: true,
         charset: "utf8mb4_bin"
     }
