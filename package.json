@@ -22,6 +22,6 @@
   "homepage": "https://github.com/akyuujs/akyuu-adapter-toshihiko#readme",
   "dependencies": {
     "lodash.template": "^4.4.0",
-    "toshihiko": "^1.0.0-alpha.4"
+    "toshihiko": "^1.0.0-alpha.5"
   }
 }
