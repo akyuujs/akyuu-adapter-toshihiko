@@ -6,8 +6,12 @@
  */
 "use strict";
 
+var template = require("lodash.template");
 var Model = require("toshihiko/lib/model");
 var T = require("toshihiko");
+
+const SEQUENCE_TEMPLATE = template(
+    "INSERT INTO `_sequence` (`name`) VALUES('<%= name %>') ON DUPLICATE KEY UPDATE `id` = LAST_INSERT_ID(`id` + 1)");
 
 Model.prototype.nextId = function(callback) {
     this.toshihiko.nextSequence(this.name, callback);
@@ -20,15 +24,10 @@ exports.create = function(config) {
 
     if(config.dialect === "mysql") {
         toshihiko.nextSequence = function(name, callback) {
-            toshihiko.execute(
-                "INSERT INTO `_sequence` (`name`) VALUES('{name}') ON DUPLICATE KEY ".assign({
-                    name: name
-                }) + "UPDATE `id` = LAST_INSERT_ID(`id` + 1)",
-
-                function(err, info) {
-                    if (err) return callback(err);
-                    callback(null, info.insertId);
-                });
+            toshihiko.execute(SEQUENCE_TEMPLATE({ name: name }), function(err, info) {
+                if(err) return callback(err);
+                callback(null, info.insertId);
+            });
         };
     }
 
